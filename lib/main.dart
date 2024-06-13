@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: const LoginPage(),
+      home: LoginPage(),
       theme: Provider.of<ThemeProvider>(context).themedata,
       // This trailing comma makes auto-formatting nicer for build methods.
     );
