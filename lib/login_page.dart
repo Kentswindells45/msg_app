@@ -12,10 +12,30 @@ class LoginPage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             // logo
-            Icon(Icons.lock_open_rounded)
+            Icon(
+              Icons.lock_open_rounded,
+              size: 100,
+              color: Theme.of(context).colorScheme.inversePrimary,
+            ),
+
+            const SizedBox(
+              height: 25,
+            ),
             //message
+            Text(
+              "Food Delivery App",
+              style: TextStyle(
+                fontSize: 16,
+                color: Theme.of(context).colorScheme.inversePrimary,
+              ),
+            ),
+
+            const SizedBox(
+              height: 25,
+            ),
 
             // email textfield
+            TextField(),
 
             // password textfield
 
