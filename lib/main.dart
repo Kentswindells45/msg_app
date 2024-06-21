@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:msg_app/authentication/login_or_register.dart';
+import 'package:msg_app/pages/register_page.dart';
 import 'package:provider/provider.dart';
 
-import 'login_page.dart';
+import 'pages/login_page.dart';
 import 'themes/theme_provider.dart';
 
 void main() {
@@ -19,7 +21,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: LoginPage(),
+      home: const LoginOrRegister(),
       theme: Provider.of<ThemeProvider>(context).themedata,
       // This trailing comma makes auto-formatting nicer for build methods.
     );
