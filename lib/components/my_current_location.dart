@@ -45,10 +45,11 @@ class MyCurrentLocation extends StatelessWidget {
               children: [
                 // address
                 Text(
-                  "Kumasi Airport Residential Sw74",
+                  "Kumasi Airport RS. Sw74",
                   style: TextStyle(
-                      color: Theme.of(context).colorScheme.inversePrimary,
-                      fontWeight: FontWeight.bold),
+                    color: Theme.of(context).colorScheme.inversePrimary,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
 
                 // drop down menu
