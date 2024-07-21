@@ -7,6 +7,8 @@ import 'package:msg_app/components/my_drawer.dart';
 import 'package:msg_app/components/my_sliver_appbar.dart';
 import 'package:msg_app/components/my_tab_bar.dart';
 import 'package:msg_app/models/food.dart';
+import 'package:msg_app/models/resturant.dart';
+import 'package:provider/provider.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -78,30 +80,11 @@ class _HomePageState extends State<HomePage>
                   ),
                 )
               ],
-          body: TabBarView(
-            controller: _tabController,
-            children: [
-              ListView.builder(
-                itemCount: 5,
-                itemBuilder: (context, index) => Text("first item"),
-              ),
-              ListView.builder(
-                itemCount: 5,
-                itemBuilder: (context, index) => Text("second item"),
-              ),
-              ListView.builder(
-                itemCount: 5,
-                itemBuilder: (context, index) => Text("third item"),
-              ),
-              ListView.builder(
-                itemCount: 5,
-                itemBuilder: (context, index) => Text("third item"),
-              ),
-              ListView.builder(
-                itemCount: 5,
-                itemBuilder: (context, index) => Text("third item"),
-              ),
-            ],
+          body: Consumer<Restaurant>(
+            builder: (context, restaurant, child) => TabBarView(
+              controller: _tabController,
+              children: getFoodInThisCategory(restaurant as List<Food>),
+            ),
           )),
     );
   }

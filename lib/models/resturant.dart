@@ -1,6 +1,8 @@
+import 'package:flutter/material.dart';
+
 import 'food.dart';
 
-class Resturant {
+class Restaurant extends ChangeNotifier {
   // list of food menu
   final List<Food> menu = [
     // burgers
@@ -330,12 +332,12 @@ class Resturant {
   /*
   G E T T E R S
   */
-  List<Food> get menu => _menu;
+  List<Food> get Menu => menu;
 
   /*
   O P E R A T I O N S
   */
-  // add cart 
+  // add cart
 
   // remove from cart
 
