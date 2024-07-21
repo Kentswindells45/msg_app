@@ -266,8 +266,7 @@ class Resturant {
     //drinks
     Food(
       name: "",
-      description:
-          "Chilled ice drink with a hint of lemon, served over ice.",
+      description: "Chilled ice drink with a hint of lemon, served over ice.",
       imagepath: "lib/images/burgers/ice-drinking.jpg",
       price: 25.10,
       category: FoodCategory.drinks,
@@ -279,8 +278,7 @@ class Resturant {
     ),
     Food(
       name: "Iced Cocktail ",
-      description:
-          "A blend of natural fruit cocktail, for a healthy boost.",
+      description: "A blend of natural fruit cocktail, for a healthy boost.",
       imagepath: "lib/images/burgers/iced-cocktail.jpg",
       price: 25.10,
       category: FoodCategory.drinks,
@@ -292,8 +290,7 @@ class Resturant {
     ),
     Food(
       name: "Lemonade",
-      description:
-          "A fresh lemonade to chill and relax your discomfort.",
+      description: "A fresh lemonade to chill and relax your discomfort.",
       imagepath: "lib/images/burgers/lemonade.jpg",
       price: 25.10,
       category: FoodCategory.drinks,
@@ -318,8 +315,7 @@ class Resturant {
     ),
     Food(
       name: "Refreshing Drink",
-      description:
-          "A classic Refreshing drink to sooth your discomfort",
+      description: "A classic Refreshing drink to sooth your discomfort",
       imagepath: "lib/images/burgers/sweet-chocolate.jpg",
       price: 25.10,
       category: FoodCategory.drinks,
@@ -334,12 +330,27 @@ class Resturant {
   /*
   G E T T E R S
   */
+  List<Food> get menu => _menu;
 
-   /*
+  /*
   O P E R A T I O N S
   */
+  // add cart 
 
-   /*
+  // remove from cart
+
+  //get total price of cart
+
+  //get totalnumber of items in cart
+
+  //clear cart
+
+  /*
   H E L P E R S
   */
+  // generate a receipt
+
+  // format double value into money
+
+  //format list of addons to string
 }

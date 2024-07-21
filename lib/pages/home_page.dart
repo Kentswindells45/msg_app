@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:msg_app/components/my_current_location.dart';
@@ -5,6 +6,7 @@ import 'package:msg_app/components/my_description.dart';
 import 'package:msg_app/components/my_drawer.dart';
 import 'package:msg_app/components/my_sliver_appbar.dart';
 import 'package:msg_app/components/my_tab_bar.dart';
+import 'package:msg_app/models/food.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -20,7 +22,34 @@ class _HomePageState extends State<HomePage>
   @override
   void initState() {
     super.initState();
-    _tabController = TabController(length: 3, vsync: this);
+    _tabController =
+        TabController(length: FoodCategory.values.length, vsync: this);
+  }
+
+  @override
+  void dispose() {
+    _tabController.dispose();
+    super.dispose();
+  }
+
+  // sort out and return a list of food item that belong to a specific category
+  List<Food> _filterMenuByCategory(FoodCategory category, List<Food> fulMenu) {
+    return fulMenu.where((food) => food.category == category).toList();
+  }
+
+  //return list of foods in given category
+  List<Widget> getFoodInThisCategory(List<Food> fulMenu) {
+    return FoodCategory.values.map((category) {
+      List<Food> categoryMenu = _filterMenuByCategory(category, fulMenu);
+      return ListView.builder(
+          itemCount: categoryMenu.length,
+          physics: const NeverScrollableScrollPhysics(),
+          itemBuilder: (context, index) {
+            return ListTile(
+              title: Text(categoryMenu[index].name),
+            );
+          });
+    }).toList();
   }
 
   @override
@@ -43,7 +72,6 @@ class _HomePageState extends State<HomePage>
                       ),
                       // my current location
                       const MyCurrentLocation(),
-
                       // description box
                       const MyDescription(),
                     ],
@@ -60,6 +88,14 @@ class _HomePageState extends State<HomePage>
               ListView.builder(
                 itemCount: 5,
                 itemBuilder: (context, index) => Text("second item"),
+              ),
+              ListView.builder(
+                itemCount: 5,
+                itemBuilder: (context, index) => Text("third item"),
+              ),
+              ListView.builder(
+                itemCount: 5,
+                itemBuilder: (context, index) => Text("third item"),
               ),
               ListView.builder(
                 itemCount: 5,
