@@ -4,6 +4,7 @@ import 'package:flutter/widgets.dart';
 import 'package:msg_app/components/my_current_location.dart';
 import 'package:msg_app/components/my_description.dart';
 import 'package:msg_app/components/my_drawer.dart';
+import 'package:msg_app/components/my_food_tile.dart';
 import 'package:msg_app/components/my_sliver_appbar.dart';
 import 'package:msg_app/components/my_tab_bar.dart';
 import 'package:msg_app/models/food.dart';
@@ -42,13 +43,18 @@ class _HomePageState extends State<HomePage>
   //return list of foods in given category
   List<Widget> getFoodInThisCategory(List<Food> fulMenu) {
     return FoodCategory.values.map((category) {
+      //get cateory name
       List<Food> categoryMenu = _filterMenuByCategory(category, fulMenu);
       return ListView.builder(
           itemCount: categoryMenu.length,
           physics: const NeverScrollableScrollPhysics(),
+          padding: EdgeInsets.zero,
           itemBuilder: (context, index) {
-            return ListTile(
-              title: Text(categoryMenu[index].name),
+            // get individual food
+            final food = categoryMenu[index];
+            return MyFoodTile(
+              food: food,
+              onTap: () {},
             );
           });
     }).toList();
@@ -59,33 +65,34 @@ class _HomePageState extends State<HomePage>
     return Scaffold(
       drawer: const MyDrawer(),
       body: NestedScrollView(
-          headerSliverBuilder: (context, innerBoxIsScrolled) => [
-                MySliverAppbar(
-                  title: MyTabBar(
-                    tabController: _tabController,
-                  ),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      Divider(
-                        indent: 25,
-                        endIndent: 25,
-                        color: Theme.of(context).colorScheme.secondary,
-                      ),
-                      // my current location
-                      const MyCurrentLocation(),
-                      // description box
-                      const MyDescription(),
-                    ],
-                  ),
-                )
-              ],
-          body: Consumer<Restaurant>(
-            builder: (context, restaurant, child) => TabBarView(
-              controller: _tabController,
-              children: getFoodInThisCategory(restaurant as List<Food>),
+        headerSliverBuilder: (context, innerBoxIsScrolled) => [
+          MySliverAppbar(
+            title: MyTabBar(
+              tabController: _tabController,
             ),
-          )),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                Divider(
+                  indent: 25,
+                  endIndent: 25,
+                  color: Theme.of(context).colorScheme.secondary,
+                ),
+                // my current location
+                const MyCurrentLocation(),
+                // description box
+                const MyDescription(),
+              ],
+            ),
+          )
+        ],
+        body: Consumer<Restaurant>(
+          builder: (context, restaurant, child) => TabBarView(
+            controller: _tabController,
+            children: getFoodInThisCategory(restaurant.menu),
+          ),
+        ),
+      ),
     );
   }
 }

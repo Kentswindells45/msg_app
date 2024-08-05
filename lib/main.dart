@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:msg_app/authentication/login_or_register.dart';
-import 'package:msg_app/pages/register_page.dart';
 import 'package:provider/provider.dart';
 import 'package:msg_app/models/resturant.dart';
-import 'pages/login_page.dart';
 import 'themes/theme_provider.dart';
 
 void main() {
