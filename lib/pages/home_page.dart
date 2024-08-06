@@ -9,6 +9,7 @@ import 'package:msg_app/components/my_sliver_appbar.dart';
 import 'package:msg_app/components/my_tab_bar.dart';
 import 'package:msg_app/models/food.dart';
 import 'package:msg_app/models/resturant.dart';
+import 'package:msg_app/pages/food_page.dart';
 import 'package:provider/provider.dart';
 
 class HomePage extends StatefulWidget {
@@ -54,7 +55,12 @@ class _HomePageState extends State<HomePage>
             final food = categoryMenu[index];
             return MyFoodTile(
               food: food,
-              onTap: () {},
+              onTap: () => Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => FoodPage(food: food),
+                ),
+              ),
             );
           });
     }).toList();

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:msg_app/models/cart_item.dart';
 
 import 'food.dart';
 
@@ -76,7 +77,7 @@ class Restaurant extends ChangeNotifier {
       name: "Caesar Salad",
       description:
           "Crisp romaine lettuce, parmesean cheese, cruutoons, a Caesar dressing.",
-      imagepath: "lib/images/burgers/delicious-salad.jpg",
+      imagepath: "lib/images/salads/delicious-salad.jpg",
       price: 5.10,
       category: FoodCategory.salads,
       availableAddons: [
@@ -88,7 +89,7 @@ class Restaurant extends ChangeNotifier {
     Food(
       name: "Onion Rings",
       description: "Golden and crispy onion rings, perfect for dipping",
-      imagepath: "lib/images/burgers/fresh-greeksalad.jpg",
+      imagepath: "lib/images/salads/fresh-greeksalad.jpg",
       price: 15.10,
       category: FoodCategory.salads,
       availableAddons: [
@@ -101,7 +102,7 @@ class Restaurant extends ChangeNotifier {
       name: "Tuna Tomatoes",
       description:
           "Smoky crispy onion rings with tuna and tomato sauce make this salad savory delight",
-      imagepath: "lib/images/burgers/salad-tuna-tomatoes.jpg",
+      imagepath: "lib/images/salads/salad-tuna-tomatoes.jpg",
       price: 5.10,
       category: FoodCategory.salads,
       availableAddons: [
@@ -113,7 +114,7 @@ class Restaurant extends ChangeNotifier {
     Food(
       name: "Crispy salad",
       description: "Crispy salad with bacon, and onion rings",
-      imagepath: "lib/images/burgers/top-view-crispy.jpg",
+      imagepath: "lib/images/salads/top-view-crispy.jpg",
       price: 10.10,
       category: FoodCategory.salads,
       availableAddons: [
@@ -126,7 +127,7 @@ class Restaurant extends ChangeNotifier {
       name: "Gyro Salad",
       description:
           "Embraced the savory taste of delightful cheese with mushy beef",
-      imagepath: "lib/images/burgers/yummy-gyro-sald.jpg",
+      imagepath: "lib/images/salads/yummy-gyro-salad.jpg",
       price: 25.10,
       category: FoodCategory.salads,
       availableAddons: [
@@ -140,7 +141,7 @@ class Restaurant extends ChangeNotifier {
       name: "Bagels",
       description: "Crispy chicken with lecttuce",
       imagepath:
-          "lib/images/burgers/bagels-with-lettuce-tomatoes_144627-17178.jpg",
+          "lib/images/sides/bagels-with-lettuce-tomatoes_144627-17178.jpg",
       price: 25.10,
       category: FoodCategory.sides,
       availableAddons: [
@@ -152,7 +153,7 @@ class Restaurant extends ChangeNotifier {
     Food(
       name: "Club Sandwich",
       description: "Enjoy a tasty delight flavour of a club sandwich",
-      imagepath: "lib/images/burgers/club-sandwich.jpg",
+      imagepath: "lib/images/sides/club-sandwich.jpg",
       price: 5.10,
       category: FoodCategory.sides,
       availableAddons: [
@@ -165,8 +166,7 @@ class Restaurant extends ChangeNotifier {
       name: "Grilled Chicken Steak",
       description:
           "Smoky Chicken,with onion rings make this sides savory delight",
-      imagepath:
-          "lib/images/burgers/grilled-chicken-steak-with-french-fries.jpg",
+      imagepath: "lib/images/sides/grilled-chicken-steak-with-french-fries.jpg",
       price: 25.10,
       category: FoodCategory.sides,
       availableAddons: [
@@ -178,7 +178,7 @@ class Restaurant extends ChangeNotifier {
     Food(
       name: "Grilled Chicken Steak",
       description: "Tasty chicken with soft lecttuce",
-      imagepath: "lib/images/burgers/grilled-chicken-steak.jpg",
+      imagepath: "lib/images/sides/grilled-chicken-steak.jpg",
       price: 5.10,
       category: FoodCategory.sides,
       availableAddons: [
@@ -191,7 +191,7 @@ class Restaurant extends ChangeNotifier {
       name: "Meal Garnish",
       description:
           "Smoky BBQ sauce, crispy bacon, and rings make this beef burger savory delight",
-      imagepath: "lib/images/burgers/hamburger-cheese.jpg",
+      imagepath: "lib/images/sides/meal-garnish-with-coffee.jpg",
       price: 25.10,
       category: FoodCategory.sides,
       availableAddons: [
@@ -205,7 +205,7 @@ class Restaurant extends ChangeNotifier {
     Food(
       name: "Cupcake",
       description: "Expeirence the floffy texture and a savory taste",
-      imagepath: "lib/images/burgers/cupcakes.jpg",
+      imagepath: "lib/images/desserts/cupcakes.jpg",
       price: 15.10,
       category: FoodCategory.desserts,
       availableAddons: [
@@ -217,7 +217,7 @@ class Restaurant extends ChangeNotifier {
     Food(
       name: "Delicious donut",
       description: "Spicy chocolate toppings that comes with a tasty delight",
-      imagepath: "lib/images/burgers/delicious-donuts.jpg",
+      imagepath: "lib/images/desserts/delicious-donuts.jpg",
       price: 25.10,
       category: FoodCategory.desserts,
       availableAddons: [
@@ -230,7 +230,7 @@ class Restaurant extends ChangeNotifier {
       name: "Dessert fruit cake",
       description:
           "Enjoy a floffy taste of chololate with awesome raspberry sauce",
-      imagepath: "lib/images/burgers/dessert-fruitcake.jpg",
+      imagepath: "lib/images/desserts/dessert-fruitcake.jpg",
       price: 25.10,
       category: FoodCategory.desserts,
       availableAddons: [
@@ -242,7 +242,7 @@ class Restaurant extends ChangeNotifier {
     Food(
       name: "Strawberry Cake",
       description: "Savory taste of strawberry with icy cake",
-      imagepath: "lib/images/burgers/small-cake-strawberries.jpg",
+      imagepath: "lib/images/desserts/small-cake-strawberries.jpg",
       price: 25.10,
       category: FoodCategory.desserts,
       availableAddons: [
@@ -255,7 +255,7 @@ class Restaurant extends ChangeNotifier {
       name: "Sweet Chocolate Cake",
       description:
           "Having a sweet tooth? creamy chocolate cake to more than satisfy your sweet tooth cake.",
-      imagepath: "lib/images/burgers/sweet-chocolate.jpg",
+      imagepath: "lib/images/desserts/sweet-chocolate.jpg",
       price: 25.10,
       category: FoodCategory.desserts,
       availableAddons: [
@@ -267,9 +267,9 @@ class Restaurant extends ChangeNotifier {
 
     //drinks
     Food(
-      name: "",
+      name: "Iced drink with lemonade",
       description: "Chilled ice drink with a hint of lemon, served over ice.",
-      imagepath: "lib/images/burgers/ice-drinking.jpg",
+      imagepath: "lib/images/drinks/ice-drinking.jpg",
       price: 25.10,
       category: FoodCategory.drinks,
       availableAddons: [
@@ -281,7 +281,7 @@ class Restaurant extends ChangeNotifier {
     Food(
       name: "Iced Cocktail ",
       description: "A blend of natural fruit cocktail, for a healthy boost.",
-      imagepath: "lib/images/burgers/iced-cocktail.jpg",
+      imagepath: "lib/images/drinks/iced-cocktails.jpg",
       price: 25.10,
       category: FoodCategory.drinks,
       availableAddons: [
@@ -293,7 +293,7 @@ class Restaurant extends ChangeNotifier {
     Food(
       name: "Lemonade",
       description: "A fresh lemonade to chill and relax your discomfort.",
-      imagepath: "lib/images/burgers/lemonade.jpg",
+      imagepath: "lib/images/drinks/lemonade.jpg",
       price: 25.10,
       category: FoodCategory.drinks,
       availableAddons: [
@@ -306,7 +306,7 @@ class Restaurant extends ChangeNotifier {
       name: "Orange Soft Yellow Drink ",
       description:
           "A classic Cuban drink with muddled lime and mint, sweetned with sugar.",
-      imagepath: "lib/images/burgers/orange-soft-yellow-drinks.jpg",
+      imagepath: "lib/images/drinks/orange-soft-yellow-drinks.jpg",
       price: 25.10,
       category: FoodCategory.drinks,
       availableAddons: [
@@ -318,7 +318,7 @@ class Restaurant extends ChangeNotifier {
     Food(
       name: "Refreshing Drink",
       description: "A classic Refreshing drink to sooth your discomfort",
-      imagepath: "lib/images/burgers/sweet-chocolate.jpg",
+      imagepath: "lib/images/drinks/refreshing-drink.jpg",
       price: 25.10,
       category: FoodCategory.drinks,
       availableAddons: [
@@ -337,7 +337,15 @@ class Restaurant extends ChangeNotifier {
   /*
   O P E R A T I O N S
   */
+  // user cart
+
+  final List<CartItem> _cart = [];
+
   // add cart
+  void addToCart(Food food, List<Addon> selectedAddons) {
+    // see if there is a cart item already with the same food and selected addons
+    CartItem? cartItem = _cart.firstWhereOrNull((element) => false);
+  }
 
   // remove from cart
 
