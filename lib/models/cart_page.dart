@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:msg_app/components/my_button.dart';
 import 'package:msg_app/components/my_cart_tile.dart';
 import 'package:msg_app/models/cart_item.dart';
 import 'package:msg_app/models/resturant.dart';
+import 'package:msg_app/pages/payment_page.dart';
 import 'package:provider/provider.dart';
 
 class CartPage extends StatelessWidget {
@@ -27,13 +29,23 @@ class CartPage extends StatelessWidget {
                     showDialog(
                       context: context,
                       builder: (context) => AlertDialog(
-                        title: Text("Are you sure you want to clear the cart?"),
+                        title: const Text(
+                            "Are you sure you want to clear the cart?"),
                         actions: [
                           // cancle buttons
                           TextButton(
-                            onPressed: () {}, child: Text("Cancel"))
+                            onPressed: () => Navigator.pop(context),
+                            child: const Text("Cancel"),
+                          ),
 
                           //yes button
+                          TextButton(
+                            onPressed: () {
+                              Navigator.pop(context);
+                              restaurant.clearCart();
+                            },
+                            child: const Text("Yes"),
+                          ),
                         ],
                       ),
                     );
@@ -44,17 +56,45 @@ class CartPage extends StatelessWidget {
             ),
             body: Column(
               children: [
+                // list of cart
                 Expanded(
-                  child: ListView.builder(
-                    itemCount: userCart.length,
-                    itemBuilder: (context, index) {
-                      // get individual cart item
-                      final cartItem = userCart[index];
-                      // return cart title UI
+                  child: Column(
+                    children: [
+                      userCart.isEmpty
+                          ? const Expanded(
+                              child: Center(
+                                child: Text("Cart is empty.."),
+                              ),
+                            )
+                          : Expanded(
+                              child: ListView.builder(
+                                itemCount: userCart.length,
+                                itemBuilder: (context, index) {
+                                  // get individual cart item
+                                  final cartItem = userCart[index];
+                                  // return cart title UI
 
-                      return MyCartTile(cartItem: cartItem);
-                    },
+                                  return MyCartTile(cartItem: cartItem);
+                                },
+                              ),
+                            )
+                    ],
                   ),
+                ),
+
+                // button to pay
+                MyButton(
+                  onTap: () => Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const PaymentPage(),
+                    ),
+                  ),
+                  text: "Go to checkout",
+                ),
+
+                const SizedBox(
+                  height: 25,
                 )
               ],
             ));
