@@ -18,7 +18,7 @@ class Restaurant extends ChangeNotifier {
       availableAddons: [
         Addon(name: "Extra cheese", price: 25.20),
         Addon(name: "Bacon", price: 15.20),
-        Addon(name: "Avocado", price: 10.20)
+        Addon(name: "Avocado", price: 10.20),
       ],
     ),
     Food(
@@ -421,8 +421,24 @@ class Restaurant extends ChangeNotifier {
   H E L P E R S
   */
   // generate a receipt
+  String displayCartReciept() {
+    final receipt = StringBuffer();
+    receipt.writeln("Here's your receipt.");
+    receipt.writeln();
+
+    //format the date to include up to seconds only
+    String formattedDate = DateFormat('yyyy-mm-dd HH:mm:ss');
+  }
 
   // format double value into money
+  String _formatPrice(double price) {
+    return "GHC ${price.toStringAsFixed(2)}";
+  }
 
   //format list of addons to string
+  String _formatAddons(List<Addon> addons) {
+    return addons
+        .map((addon) => "${addon.name} (${_formatPrice(addon.price)})")
+        .join(", ");
+  }
 }
