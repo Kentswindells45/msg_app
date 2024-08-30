@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:msg_app/components/my_button.dart';
 import 'package:msg_app/components/my_cart_tile.dart';
-import 'package:msg_app/models/cart_item.dart';
 import 'package:msg_app/models/resturant.dart';
 import 'package:msg_app/pages/payment_page.dart';
 import 'package:provider/provider.dart';

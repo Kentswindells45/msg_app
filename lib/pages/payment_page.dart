@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_credit_card/flutter_credit_card.dart';
 import 'package:msg_app/components/my_button.dart';
 import 'package:msg_app/pages/delivery_progress_page.dart';
@@ -51,7 +50,7 @@ class _PaymentPageState extends State<PaymentPage> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => DeliveryProgressPage(),
+                    builder: (context) => const DeliveryProgressPage(),
                   ),
                 );
               },
@@ -103,6 +102,7 @@ class _PaymentPageState extends State<PaymentPage> {
           ),
 
           const Spacer(),
+
           MyButton(
             onTap: userTappedPay,
             text: "Pay now",

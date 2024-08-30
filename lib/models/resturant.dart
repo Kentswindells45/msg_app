@@ -1,5 +1,6 @@
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:msg_app/models/cart_item.dart';
 
 import 'food.dart';
@@ -333,6 +334,7 @@ class Restaurant extends ChangeNotifier {
   /*
   G E T T E R S
   */
+  // ignore: non_constant_identifier_names
   List<Food> get Menu => menu;
   List<CartItem> get cart => _cart;
 
@@ -352,7 +354,7 @@ class Restaurant extends ChangeNotifier {
 
       // check if the list of selected addons are the same
       bool isSameAddons =
-          ListEquality().equals(item.selectedAddons, selectedAddons);
+          const ListEquality().equals(item.selectedAddons, selectedAddons);
       return isSameFood && isSameAddons;
     });
     //if item already exists, increase it's quantity
@@ -427,7 +429,28 @@ class Restaurant extends ChangeNotifier {
     receipt.writeln();
 
     //format the date to include up to seconds only
-    String formattedDate = DateFormat('yyyy-mm-dd HH:mm:ss');
+    String formattedDate =
+        DateFormat('yyyy-mm-dd HH:mm:ss').format(DateTime.now());
+
+    receipt.writeln(formattedDate);
+    receipt.writeln();
+    receipt.writeln("------------");
+
+    for (final cartItem in _cart) {
+      receipt.writeln(
+          "${cartItem.quantity} x ${cartItem.food.name} - ${_formatPrice(cartItem.food.price)}");
+      if (cartItem.selectedAddons.isNotEmpty) {
+        receipt.writeln("Addons: ${_formatAddons(cartItem.selectedAddons)}");
+      }
+      receipt.writeln();
+    }
+
+    receipt.writeln("-------------");
+    receipt.writeln();
+    receipt.writeln("Total Items: ${getTotalItemCount()}");
+    receipt.writeln("Total Price: ${_formatPrice(getTotalPrice())}");
+
+    return receipt.toString();
   }
 
   // format double value into money

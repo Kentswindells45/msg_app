@@ -1,3 +1,5 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:flutter/material.dart';
 import 'package:msg_app/models/food.dart';
 
@@ -36,7 +38,7 @@ class MyQuantitySelector extends StatelessWidget {
 
           // quaantity count
           Padding(
-            padding: EdgeInsets.symmetric(horizontal: 8),
+            padding: const EdgeInsets.symmetric(horizontal: 8),
             child: SizedBox(
               width: 20,
               child: Center(
