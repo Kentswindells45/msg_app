@@ -73,7 +73,7 @@ class DeliveryProgressPage extends StatelessWidget {
           Row(
             children: [
               // message button
-              Container(
+              Container( 
                 decoration: BoxDecoration(
                   // ignore: deprecated_member_use
                   color: Theme.of(context).colorScheme.background,
