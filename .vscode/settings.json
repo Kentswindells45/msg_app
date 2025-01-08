@@ -1,3 +1,4 @@
 {
-    "cmake.sourceDirectory": "D:/FlutterProject/msg_app/linux"
+    "cmake.sourceDirectory": "D:/FlutterProject/msg_app/linux",
+    "cmake.ignoreCMakeListsMissing": true
 }
